@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/12 13:39:58 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/06/12 22:03:24 by djoyke        ########   odam.nl         */
+/*   Updated: 2024/06/12 22:44:32 by djoyke        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,15 @@ ClapTrap::ClapTrap(const ClapTrap& other){
 //only update of the current instance
 const ClapTrap& ClapTrap::operator=(const ClapTrap& other){
 	std::cout << BLUE << "copy assignment operator overloader called" << RESET << "\n\n";
-	if (this != &other)
-	{
-		_name = other._name;
-		_hitPoints = other._hitPoints;
-		_energyPoints = other._energyPoints;
-		_attackDamage = other._attackDamage;
+	if (this != &other){
+		// _name = other._name;
+		// _hitPoints = other._hitPoints;
+		// _energyPoints = other._energyPoints;
+		// _attackDamage = other._attackDamage;
+		this->setName(other.getName());
+		this->setHitPoints(other.getHitPoints());
+		this->setEnergyPoints(other.getEnergyPoints());
+		this->setAttackDamage(other.getAttackDamage());
 	}
 	return *this;
 }
@@ -80,54 +83,52 @@ void ClapTrap::setAttackDamage(int amount){
 	this->_attackDamage = amount;
 }
 
+void ClapTrap::setName(const std::string& name) {
+    _name = name;
+}
+
 void ClapTrap::attack(const std::string& target){
-	if (_hitPoints == 0)
-	{
-		std::cout	<< MAGENTA << this->_name << RESET 
+	if (this->getHitPoints() == 0){
+		std::cout	<< MAGENTA << this->getName() << RESET 
 					<< " can't attack, hitpoints are gone, so gotta roll!" << std::endl;
 		return ;
 	}
-	else if (_energyPoints == 0)
-	{
-		std::cout	<< MAGENTA << this->_name << RESET 
+	else if (this->getEnergyPoints() == 0){
+		std::cout	<< MAGENTA << this->getName() << RESET 
 					<< " can't attack, has no energy, does anyone have a powerbank?" << std::endl;
 		return ;
 	}
-	std::cout 	<< MAGENTA << this->_name << RESET << " attacks " << MAGENTA << target << RESET << " causing " 
-				<< MAGENTA << this->_attackDamage << RESET << " points damage!" << RESET << std::endl;
-	_energyPoints = _energyPoints - 1;
+	std::cout 	<< MAGENTA << this->getName() << RESET << " attacks " << MAGENTA << target << RESET << " causing " 
+				<< MAGENTA << this->getAttackDamage() << RESET << " points damage!" << RESET << std::endl;
+	this->setEnergyPoints(this->getEnergyPoints() - 1);
 }
 
 void ClapTrap::takeDamage(unsigned int amount){
-	if (amount > _hitPoints)
-	{
-		std::cout << MAGENTA << this->_name << RESET << " can't take anymore damage, has no hitpoints, left leave it alone!" << RESET << std::endl;
+	if (amount > this->getHitPoints()){
+		std::cout << MAGENTA << this->getName() << RESET << " can't take anymore damage, leave it alone!" << RESET << std::endl;
 		return ;
 	}
-	_hitPoints = _hitPoints - amount;
-	std::cout 	<< MAGENTA << this->_name << RESET << " got attacked and got " 
+	this->setHitPoints(this->getHitPoints() - amount);
+	std::cout 	<< MAGENTA << this->getName() << RESET << " got attacked and got " 
 				<< MAGENTA << amount << RESET << " of hitpoints in damage!" << std::endl;	
 }
 
 void ClapTrap::beRepaired(unsigned int amount){
-	if (_energyPoints == 0)
-	{
-		std::cout << MAGENTA << this->_name << RESET <<" tried to repair itself but failed is too tired, no energypoints left" << std::endl;
+	if (this->getEnergyPoints() == 0){
+		std::cout << MAGENTA << this->getName() << RESET <<" tried to repair itself but failed is too tired, no energypoints left" << std::endl;
 		return ;
 	}
-	else if (_hitPoints == 0)
-	{
-		std::cout << MAGENTA << this->_name << RESET << " tried to repair itself but it's just too damaged, no hitpoints left" << std::endl;
+	else if (this->getHitPoints() == 0){
+		std::cout << MAGENTA << this->getName() << RESET << " tried to repair itself but it's just too damaged, no hitpoints left" << std::endl;
 		return ;
 	}
-	else if (_hitPoints + amount > 10)
-	{
-		std::cout << MAGENTA << this->_name << RESET << " didn't repair itself! Don't go overboard that's over the max amount of hitpoints" << std::endl;
-		return ;	
+	else if (this->getHitPoints() + amount > 10){
+		std::cout << MAGENTA << this->getName() << RESET << " didn't repair itself! Don't go overboard that's over the max amount of hitpoints" << std::endl;
+		return ;
 	}
-	_hitPoints = _hitPoints + amount;
-	_energyPoints = _energyPoints - 1;
-	std::cout 	<< MAGENTA << this->_name << RESET << " repaired itself and got " 
+	this->setHitPoints(this->getEnergyPoints() + amount);
+	this->setEnergyPoints(this->getEnergyPoints() - 1);
+	std::cout 	<< MAGENTA << this->getName() << RESET << " repaired itself and got " 
 				<< MAGENTA << amount << RESET << " of hit points back " << std::endl;
 }
 
