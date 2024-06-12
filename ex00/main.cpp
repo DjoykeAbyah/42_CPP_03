@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/12 18:03:07 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/06/12 18:05:18 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/06/12 22:02:30 by djoyke        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,27 @@
 
 int main()
 {
-	ClapTrap clapTrap;
+	//get user input?
+	ClapTrap clapTrap1;
+	ClapTrap clapTrap2("Sally");
 	
-	clapTrap.attack("Gerald");
-	ClapTrap claptrap1(clapTrap);
+	clapTrap1.attack(clapTrap2.getName());
+	clapTrap2.takeDamage(8);
+	clapTrap2.beRepaired(4);
+
+	std::cout << BLUE << std::endl << "stat update!" << RESET << std::endl;
+	std::cout << clapTrap1 << clapTrap2 << std::endl;
+
+	clapTrap1.beRepaired(20);
+	clapTrap1.takeDamage(10);
+
+	std::cout << BLUE << std::endl << "stat update!" << RESET <<std::endl;
+	std::cout << clapTrap1 << clapTrap2 << std::endl;
+	
+	clapTrap1.beRepaired(10);
+	clapTrap1.takeDamage(5);
+	clapTrap2.attack(clapTrap1.getName());
+
+	clapTrap2.takeDamage(98938292839238932);
+
 }

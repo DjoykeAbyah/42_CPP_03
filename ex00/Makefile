@@ -6,12 +6,12 @@
 #    By: dreijans <dreijans@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/01/17 22:21:56 by dreijans      #+#    #+#                  #
-#    Updated: 2024/06/11 21:26:13 by dreijans      ########   odam.nl          #
+#    Updated: 2024/06/12 19:17:44 by djoyke        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 #executable
-NAME 		= ClapTrap
+NAME 		= claptrap
 
 #compiler + flags
 CC			= c++

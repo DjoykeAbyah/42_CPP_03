@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/11 21:26:59 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/06/12 16:58:28 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/06/12 20:37:26 by djoyke        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,15 @@
 
 #include <iostream>
 
-//has to be in the orthodox canonical form
+# define BOLD_TEXT "\033[1m"
+# define RESET "\033[0m"
+# define BLUE "\033[34m"
+# define CYAN "\033[36m"
+# define RED "\033[31m"
+# define GREEN "\033[32m"
+# define YELLOW "\033[33m"
+# define MAGENTA "\033[35m"
+
 class ClapTrap
 {
 	private:
@@ -30,10 +38,19 @@ class ClapTrap
 		ClapTrap(const ClapTrap& other);//copy constructor
 		const ClapTrap& operator=(const ClapTrap& other); //copy assignment operator overload
 		~ClapTrap();
+
+		int getHitPoints() const;
+		int getEnergyPoints() const;
+		int getAttackDamage() const;
+		const std::string& getName() const;
+
+		void setHitPoints(int amount);
+		void setEnergyPoints(int amount);
+		void setAttackDamage(int amount);
 		
 		void attack(const std::string& target);
 		void takeDamage(unsigned int amount);
-		void beRepaired(unsigned int amount);
+		void beRepaired(unsigned int amount);	
 };
 
 //for debugging
