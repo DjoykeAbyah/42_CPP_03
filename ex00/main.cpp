@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/12 18:03:07 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/06/12 22:02:30 by djoyke        ########   odam.nl         */
+/*   Updated: 2024/06/12 22:27:00 by djoyke        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,5 @@ int main()
 	clapTrap1.beRepaired(10);
 	clapTrap1.takeDamage(5);
 	clapTrap2.attack(clapTrap1.getName());
-
-	clapTrap2.takeDamage(98938292839238932);
 
 }

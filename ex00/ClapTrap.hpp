@@ -6,13 +6,14 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/11 21:26:59 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/06/12 20:37:26 by djoyke        ########   odam.nl         */
+/*   Updated: 2024/06/12 22:19:01 by djoyke        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <iostream>
+#include <limits>
 
 # define BOLD_TEXT "\033[1m"
 # define RESET "\033[0m"
