@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/11 21:26:59 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/06/12 13:37:48 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/06/12 16:58:28 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@
 class ClapTrap
 {
 	private:
-		std::string& _name;
-		int _hitPoints = 10;
-		int _energyPoints = 10;
-		int _attackDamage = 0;
+		std::string _name;
+		int _hitPoints;
+		int _energyPoints;
+		int _attackDamage;
 		
 		
 	public:
@@ -35,3 +35,6 @@ class ClapTrap
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
 };
+
+//for debugging
+std::ostream& operator<<(std::ostream & stream, const ClapTrap& other);
