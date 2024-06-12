@@ -6,11 +6,14 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/12 13:39:58 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/06/12 17:39:12 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/06/12 17:59:34 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+
+//what if it's full health
+//give specific messages for no energy or no hitpoints
 
 ClapTrap::ClapTrap() : _name(nullptr), _hitPoints(10), _energyPoints(10), _attackDamage(0){
 	std::cout << "default constructor called" << std::endl;
@@ -44,13 +47,27 @@ ClapTrap::~ClapTrap(){
 }
 
 void ClapTrap::attack(const std::string& target){
-	std::cout << "ClapTrap " << this->_name << " attacks " << target << ", causing " << this->_attackDamage << "points of damage!" << std::endl;
+	if (_energyPoints > 0 && _hitPoints > 0)
+	{
+		_energyPoints = _energyPoints - 1;
+		std::cout << "ClapTrap " << this->_name << " attacks " << target << ", causing " << this->_attackDamage << "points of damage!" << std::endl;
+	}
+	else
+		std::cout << "ClapTrap " << this->_name << " tried to attack but failed" << std::endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount){
+	_hitPoints = _hitPoints - amount;
 	std::cout << "ClapTrap " << this->_name << " got attacked and got " << amount << " of hitpoints in damage " << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount){
-	std::cout << "ClapTrap " << this->_name << " repaired itself and got " << amount << " of hit points back " << std::endl;
+	if (_energyPoints > 0 && _hitPoints > 0)
+	{
+		_hitPoints = _hitPoints + amount;
+		_energyPoints = _energyPoints - 1;
+		std::cout << "ClapTrap " << this->_name << " repaired itself and got " << amount << " of hit points back " << std::endl;
+	}
+	else
+		std::cout << "ClapTrap " << this->_name << " tried to repair itself but failed" << std::endl;
 }
