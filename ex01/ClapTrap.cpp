@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/12 13:39:58 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/06/13 20:50:02 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/06/13 21:25:10 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,17 +36,17 @@ ClapTrap::ClapTrap(const ClapTrap& copy){
 }
 
 //only update of the current instance
-const ClapTrap& ClapTrap::operator=(const ClapTrap& other){
+const ClapTrap& ClapTrap::operator=(const ClapTrap& copy){
 	std::cout << BLUE << "copy assignment operator overloader called" << RESET << "\n\n";
-	if (this != &other){
-		// _name = other._name;
-		// _hitPoints = other._hitPoints;
-		// _energyPoints = other._energyPoints;
-		// _attackDamage = other._attackDamage;
-		this->setName(other.getName());
-		this->setHitPoints(other.getHitPoints());
-		this->setEnergyPoints(other.getEnergyPoints());
-		this->setAttackDamage(other.getAttackDamage());
+	if (this != &copy){
+		// _name = copy._name;
+		// _hitPoints = copy._hitPoints;
+		// _energyPoints = copy._energyPoints;
+		// _attackDamage = copy._attackDamage;
+		this->setName(copy.getName());
+		this->setHitPoints(copy.getHitPoints());
+		this->setEnergyPoints(copy.getEnergyPoints());
+		this->setAttackDamage(copy.getAttackDamage());
 	}
 	return *this;
 }
@@ -134,7 +134,7 @@ void ClapTrap::beRepaired(unsigned int amount){
 
 std::ostream& operator<<(std::ostream & stream, const ClapTrap& other)
 {
-	stream 	<< MAGENTA << "ClapTrap " << other.getName() 
+	stream 	<< MAGENTA << other.getName() 
 			<< RESET << " [HP: " << other.getHitPoints() 
 			<< ", EP: " << other.getEnergyPoints() 
 			<< ", AD: " << other.getAttackDamage() << "]" << "\n";

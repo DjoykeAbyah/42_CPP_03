@@ -6,11 +6,12 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/12 18:03:07 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/06/13 19:49:08 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/06/13 21:26:56 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main()
 {
@@ -24,7 +25,10 @@ int main()
 	//private means only accessible from instance of the class std::string name;
 	//protect
 	ClapTrap clapTrap1;
-	ClapTrap clapTrap2("Sally");
+	ClapTrap clapTrap2("ClapTrap Sally");
+	ScavTrap scavTrap1;
+	ScavTrap scavTrap2("ScavTrap Gerald");
+	
 	
 	clapTrap1.attack(clapTrap2.getName());
 	clapTrap2.takeDamage(8);

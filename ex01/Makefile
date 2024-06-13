@@ -6,7 +6,7 @@
 #    By: dreijans <dreijans@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/01/17 22:21:56 by dreijans      #+#    #+#                  #
-#    Updated: 2024/06/12 22:47:31 by djoyke        ########   odam.nl          #
+#    Updated: 2024/06/13 21:23:55 by dreijans      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,9 @@ CC			= c++
 CPPFLAGS	= -Wall -Wextra -Werror -g -fsanitize=address
 
 #sources
-SRC 		= 	main.cpp	\
-				ClapTrap.cpp	
+SRC 		= 	main.cpp		\
+				ClapTrap.cpp 	\
+				ScavTrap.cpp
 				
 #object files
 OBJDIR 		= obj
