@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/12 13:39:58 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/06/13 22:26:34 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/06/13 23:15:38 by djoyke        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,14 +119,15 @@ void ClapTrap::beRepaired(unsigned int amount){
 		std::cout << MAGENTA << this->getName() << RESET << " tried to repair itself but it's just too damaged, no hitpoints left" << std::endl;
 		return ;
 	}
-	else if (this->getHitPoints() + amount > 10){
-		std::cout << MAGENTA << this->getName() << RESET << " didn't repair itself! Don't go overboard that's over the max amount of hitpoints" << std::endl;
-		return ;
-	}
-	this->setHitPoints(this->getEnergyPoints() + amount);
-	this->setEnergyPoints(this->getEnergyPoints() - 1);
-	std::cout 	<< MAGENTA << this->getName() << RESET << " repaired itself and got " 
-				<< MAGENTA << amount << RESET << " of hit points back " << std::endl;
+	// else if ((this->getHitPoints() + amount) > _hitPoints){
+	// 	std::cout << MAGENTA << this->getName() << RESET << " didn't repair itself! Don't go overboard that's over the max amount of hitpoints" << std::endl;
+	// 	return ;
+	// }
+	else
+		this->setHitPoints(this->getEnergyPoints() + amount);
+		this->setEnergyPoints(this->getEnergyPoints() - 1);
+		std::cout 	<< MAGENTA << this->getName() << GREEN << " repaired itself and got " 
+					<< MAGENTA << amount << RESET << " of hit points back " << RESET << std::endl;
 }
 
 std::ostream& operator<<(std::ostream & stream, const ClapTrap& other)

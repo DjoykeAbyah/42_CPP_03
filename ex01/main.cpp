@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/12 18:03:07 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/06/13 22:41:23 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/06/13 23:10:41 by djoyke        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@ int main()
 	scavTrap1.attack(scavTrap2.getName());
 	scavTrap2.attack(clapTrap1.getName());
 
+	scavTrap1.takeDamage(1);
+	scavTrap1.beRepaired(1);
+	
 	std::cout << BLUE << std::endl << "stat update!" << RESET << std::endl;
 	std::cout << clapTrap1 << clapTrap2;
 	std::cout << scavTrap1 << scavTrap2 << std::endl;

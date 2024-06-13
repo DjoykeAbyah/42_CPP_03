@@ -6,13 +6,13 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/12 18:03:07 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/06/13 22:39:21 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/06/13 23:18:52 by djoyke        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
-#include "FragTrap.cpp"
+#include "FragTrap.hpp"
 
 int main()
 {
@@ -20,6 +20,7 @@ int main()
 	ClapTrap clapTrap2("ClapTrap Sally");
 	ScavTrap scavTrap1;
 	ScavTrap scavTrap2("ScavTrap Gerald");
+	FragTrap fragTrap1;
 	
 	clapTrap1.attack(clapTrap2.getName());
 	clapTrap2.attack(clapTrap1.getName());
