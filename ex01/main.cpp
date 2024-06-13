@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/12 18:03:07 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/06/13 21:26:56 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/06/13 22:11:47 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,40 +15,41 @@
 
 int main()
 {
-	//why destruction in  reverse order?
-	//how call constructor from the parent?
-	//how call deconstructor for both classes?
-	//instanciate what is specific to the inheritor not just the parent?
-	//get user input?
-	//public means accessible from anywhere void run(); (for animal)
-	//protected means accessible from an instance of the class or instance of child class Leg legs[4];
-	//private means only accessible from instance of the class std::string name;
-	//protect
 	ClapTrap clapTrap1;
 	ClapTrap clapTrap2("ClapTrap Sally");
 	ScavTrap scavTrap1;
 	ScavTrap scavTrap2("ScavTrap Gerald");
 	
-	
 	clapTrap1.attack(clapTrap2.getName());
-	clapTrap2.takeDamage(8);
-	clapTrap2.beRepaired(4);
+	clapTrap2.attack(clapTrap1.getName());
+	scavTrap1.attack(scavTrap2.getName());
+	scavTrap2.attack(clapTrap1.getName());
 
 	std::cout << BLUE << std::endl << "stat update!" << RESET << std::endl;
-	std::cout << clapTrap1 << clapTrap2 << std::endl;
+	std::cout << clapTrap1 << clapTrap2;
+	std::cout << scavTrap1 << scavTrap2 << std::endl;
 
-	clapTrap1.beRepaired(20);
-	clapTrap1.takeDamage(10);
+	clapTrap2.beRepaired(20);
+	clapTrap2.takeDamage(10);
+	scavTrap2.beRepaired(40);
+	scavTrap2.takeDamage(100);
+	scavTrap1.guardGate();
 
-	std::cout << BLUE << std::endl << "stat update!" << RESET <<std::endl;
-	std::cout << clapTrap1 << clapTrap2 << std::endl;
+	std::cout << BLUE << std::endl << "stat update!" << RESET << std::endl;
+	std::cout << clapTrap1 << clapTrap2;
+	std::cout << scavTrap1 << scavTrap2 << std::endl;
 	
 	clapTrap1.beRepaired(10);
 	clapTrap1.takeDamage(5);
+	scavTrap2.beRepaired(20);
+	scavTrap2.takeDamage(30);
 
-	std::cout << BLUE << std::endl << "stat update!" << RESET <<std::endl;
-	std::cout << clapTrap1 << clapTrap2 << std::endl;
-
+	std::cout << BLUE << std::endl << "stat update!" << RESET << std::endl;
+	std::cout << clapTrap1 << clapTrap2;
+	std::cout << scavTrap1 << scavTrap2 << std::endl;
+	
 	clapTrap2.attack(clapTrap1.getName());
-
+	scavTrap2.attack(scavTrap1.getName());
+	
+	return 0;
 }

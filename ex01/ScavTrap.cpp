@@ -6,7 +6,7 @@
 /*   By: djoyke <djoyke@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/12 22:47:17 by djoyke        #+#    #+#                 */
-/*   Updated: 2024/06/13 21:34:57 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/06/13 22:11:22 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,6 @@ ScavTrap::~ScavTrap(){
 }
 
 void ScavTrap::guardGate(){
-	std::cout << YELLOW << "ScavTrap " << MAGENTA << this->getName() << RESET << "is just guarding the gate guys. Nothing to see here" << RESET << std::endl;
+	std::cout << MAGENTA << this->getName() << RESET << YELLOW << " is just guarding the gate guys. Nothing to see here" << RESET << std::endl;
 }
 
