@@ -6,12 +6,13 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/12 18:03:07 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/06/13 22:11:47 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/06/13 22:22:58 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
+#include "FragTrap.cpp"
 
 int main()
 {
