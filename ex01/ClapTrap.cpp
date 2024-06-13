@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/12 13:39:58 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/06/12 22:44:32 by djoyke        ########   odam.nl         */
+/*   Updated: 2024/06/13 20:50:02 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,21 @@
 //give specific messages for no energy or no hitpoints
 
 ClapTrap::ClapTrap() : _name("Default"), _hitPoints(10), _energyPoints(10), _attackDamage(0){
-	std::cout << "default constructor called and created " 
+	std::cout << "ClapTrap default constructor called and created " 
 		<< MAGENTA << this->_name << RESET << std::endl;
 	std::cout << CYAN <<"Stats are: " << RESET << *this << std::endl;
 }
 
 ClapTrap::ClapTrap(const std::string& Name) : _name(Name), _hitPoints(10), _energyPoints(10), _attackDamage(0){
-	std::cout << "parametric constructor called and created " 
+	std::cout << "ClapTrap parametric constructor called and created " 
 		<< MAGENTA << Name << RESET << std::endl; 	
 	std::cout << CYAN << "Stats are: " << RESET << *this << std::endl;
 }
 
 //new instance created
-ClapTrap::ClapTrap(const ClapTrap& other){
-	*this = other;
-	std::cout << "copy constructor called and created " 
+ClapTrap::ClapTrap(const ClapTrap& copy){
+	*this = copy;
+	std::cout << "ClapTrap copy constructor called and created " 
 		<< MAGENTA << this->_name << RESET << std::endl;
 	std::cout << CYAN << "Stats are: " << RESET << *this << std::endl;
 }
