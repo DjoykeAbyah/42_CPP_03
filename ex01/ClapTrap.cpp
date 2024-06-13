@@ -6,14 +6,11 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/12 13:39:58 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/06/13 21:25:10 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/06/13 22:38:10 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
-
-//what if it's full health
-//give specific messages for no energy or no hitpoints
 
 ClapTrap::ClapTrap() : _name("Default"), _hitPoints(10), _energyPoints(10), _attackDamage(0){
 	std::cout << "ClapTrap default constructor called and created " 
@@ -128,8 +125,8 @@ void ClapTrap::beRepaired(unsigned int amount){
 	}
 	this->setHitPoints(this->getEnergyPoints() + amount);
 	this->setEnergyPoints(this->getEnergyPoints() - 1);
-	std::cout 	<< MAGENTA << this->getName() << RESET << " repaired itself and got " 
-				<< MAGENTA << amount << RESET << " of hit points back " << std::endl;
+	std::cout 	<< MAGENTA << this->getName() << RESET << GREEN << " repaired itself and got " 
+				<< MAGENTA << amount << RESET << " of hit points back " << RESET << std::endl;
 }
 
 std::ostream& operator<<(std::ostream & stream, const ClapTrap& other)

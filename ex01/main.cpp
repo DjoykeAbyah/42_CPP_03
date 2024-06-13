@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/12 18:03:07 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/06/13 22:11:47 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/06/13 22:41:23 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int main()
 
 	clapTrap2.beRepaired(20);
 	clapTrap2.takeDamage(10);
+	scavTrap1.beRepaired(1);
 	scavTrap2.beRepaired(40);
 	scavTrap2.takeDamage(100);
 	scavTrap1.guardGate();
