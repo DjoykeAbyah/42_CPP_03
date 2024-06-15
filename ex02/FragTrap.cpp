@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/13 22:18:07 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/06/13 22:36:53 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/06/15 16:55:34 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ FragTrap::FragTrap() : ClapTrap(){
 	this->setHitPoints(100);
 	this->setEnergyPoints(100);
 	this->setAttackDamage(30);
+	this->setMaxHitPoints(100);
 	std::cout << "FragTrap default constructor called and created " 
 		<< MAGENTA << this->getName() << RESET << std::endl;
 	std::cout << CYAN <<"Stats are: " << RESET << *this << std::endl;
@@ -26,6 +27,7 @@ FragTrap::FragTrap(const std::string& Name) : ClapTrap(Name){
 	this->setHitPoints(100);
 	this->setEnergyPoints(100);
 	this->setAttackDamage(30);
+	this->setMaxHitPoints(100);
 	std::cout << "FragTrap parametric constructor called and created " 
 		<< MAGENTA << Name << RESET << std::endl; 	
 	std::cout << CYAN << "Stats are: " << RESET << *this << std::endl;

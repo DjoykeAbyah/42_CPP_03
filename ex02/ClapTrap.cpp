@@ -6,19 +6,19 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/12 13:39:58 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/06/13 23:15:38 by djoyke        ########   odam.nl         */
+/*   Updated: 2024/06/15 17:12:43 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap() : _name("Default"), _hitPoints(10), _energyPoints(10), _attackDamage(0){
+ClapTrap::ClapTrap() : _name("Default"), _hitPoints(10), _energyPoints(10), _attackDamage(0), _maxHitPoints(10){
 	std::cout << "ClapTrap default constructor called and created " 
 		<< MAGENTA << this->_name << RESET << std::endl;
 	std::cout << CYAN <<"Stats are: " << RESET << *this << std::endl;
 }
 
-ClapTrap::ClapTrap(const std::string& Name) : _name(Name), _hitPoints(10), _energyPoints(10), _attackDamage(0){
+ClapTrap::ClapTrap(const std::string& Name) : _name(Name), _hitPoints(10), _energyPoints(10), _attackDamage(0), _maxHitPoints(10){
 	std::cout << "ClapTrap parametric constructor called and created " 
 		<< MAGENTA << Name << RESET << std::endl; 	
 	std::cout << CYAN << "Stats are: " << RESET << *this << std::endl;
@@ -39,10 +39,12 @@ const ClapTrap& ClapTrap::operator=(const ClapTrap& copy){
 		// _name = copy._name;
 		// _hitPoints = copy._hitPoints;
 		// _energyPoints = copy._energyPoints;
+		// _maxHitPoints = copy._maxHitPoints;
 		// _attackDamage = copy._attackDamage;
 		this->setName(copy.getName());
 		this->setHitPoints(copy.getHitPoints());
 		this->setEnergyPoints(copy.getEnergyPoints());
+		this->setMaxHitPoints(copy.getMaxHitPoints());
 		this->setAttackDamage(copy.getAttackDamage());
 	}
 	return *this;
@@ -64,6 +66,10 @@ int ClapTrap::getAttackDamage() const{
 	return (this->_attackDamage);
 }
 
+int ClapTrap::getMaxHitPoints() const{
+	return (this->_maxHitPoints);
+}
+
 const std::string& ClapTrap::getName() const{
 	return (this->_name);
 }
@@ -80,11 +86,20 @@ void ClapTrap::setAttackDamage(int amount){
 	this->_attackDamage = amount;
 }
 
+void ClapTrap::setMaxHitPoints(int amount){
+	this->_maxHitPoints = amount;
+}
+
 void ClapTrap::setName(const std::string& name) {
     _name = name;
 }
 
 void ClapTrap::attack(const std::string& target){
+	if (target == this->getName()){
+		std::cout	<< MAGENTA << this->getName() << RESET 
+			<< " what are you doing? you're attacking yourself!" << std::endl;
+		return ;
+	}
 	if (this->getHitPoints() == 0){
 		std::cout	<< MAGENTA << this->getName() << RESET 
 					<< " can't attack, hitpoints are gone, so gotta roll!" << std::endl;
@@ -119,15 +134,14 @@ void ClapTrap::beRepaired(unsigned int amount){
 		std::cout << MAGENTA << this->getName() << RESET << " tried to repair itself but it's just too damaged, no hitpoints left" << std::endl;
 		return ;
 	}
-	// else if ((this->getHitPoints() + amount) > _hitPoints){
-	// 	std::cout << MAGENTA << this->getName() << RESET << " didn't repair itself! Don't go overboard that's over the max amount of hitpoints" << std::endl;
-	// 	return ;
-	// }
-	else
-		this->setHitPoints(this->getEnergyPoints() + amount);
-		this->setEnergyPoints(this->getEnergyPoints() - 1);
-		std::cout 	<< MAGENTA << this->getName() << GREEN << " repaired itself and got " 
-					<< MAGENTA << amount << RESET << " of hit points back " << RESET << std::endl;
+	else if ((this->getHitPoints() + amount) > this->getMaxHitPoints()){
+		std::cout << MAGENTA << this->getName() << RESET << " didn't repair itself! Don't go overboard that's over the max amount of hitpoints" << std::endl;
+		return ;
+	}
+	this->setHitPoints(this->getHitPoints() + amount);
+	this->setEnergyPoints(this->getEnergyPoints() - 1);
+	std::cout 	<< MAGENTA << this->getName() << GREEN << " repaired itself and got " 
+				<< MAGENTA << amount << RESET << " of hit points back " << RESET << std::endl;
 }
 
 std::ostream& operator<<(std::ostream & stream, const ClapTrap& other)

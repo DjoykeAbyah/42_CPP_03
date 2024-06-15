@@ -6,7 +6,7 @@
 /*   By: djoyke <djoyke@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/12 22:47:17 by djoyke        #+#    #+#                 */
-/*   Updated: 2024/06/13 22:11:22 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/06/15 16:55:03 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ ScavTrap::ScavTrap() : ClapTrap(){
 	this->setHitPoints(100);
 	this->setEnergyPoints(50);
 	this->setAttackDamage(20);
+	this->setMaxHitPoints(100);
 	std::cout << "ScavTrap default constructor called and created " 
 		<< MAGENTA << this->getName() << RESET << std::endl;
 	std::cout << CYAN <<"Stats are: " << RESET << *this << std::endl;
@@ -26,6 +27,7 @@ ScavTrap::ScavTrap(const std::string& Name) : ClapTrap(Name){
 	this->setHitPoints(100);
 	this->setEnergyPoints(50);
 	this->setAttackDamage(20);
+	this->setMaxHitPoints(100);
 	std::cout << "ScavTrap parametric constructor called and created " 
 		<< MAGENTA << Name << RESET << std::endl; 	
 	std::cout << CYAN << "Stats are: " << RESET << *this << std::endl;

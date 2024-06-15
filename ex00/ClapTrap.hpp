@@ -6,7 +6,7 @@
 /*   By: dreijans <dreijans@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/11 21:26:59 by dreijans      #+#    #+#                 */
-/*   Updated: 2024/06/13 19:07:47 by dreijans      ########   odam.nl         */
+/*   Updated: 2024/06/15 17:15:25 by dreijans      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,28 +26,30 @@
 
 class ClapTrap
 {
-	private:
-		std::string 	_name;
+	protected:
+		std::string		_name;
 		int 			_hitPoints;
 		int 			_energyPoints;
 		int 			_attackDamage;
-		
+		int				_maxHitPoints;
 		
 	public:
-		ClapTrap();//default constructor
-		ClapTrap(const std::string& Name);//constructor with parameters
-		ClapTrap(const ClapTrap& other);//copy constructor
-		const ClapTrap& operator=(const ClapTrap& other); //copy assignment operator overload
+		ClapTrap();											//default constructor
+		ClapTrap(const std::string& Name);					//constructor with parameters
+		ClapTrap(const ClapTrap& copy);						//copy constructor
+		const ClapTrap& operator=(const ClapTrap& copy); 	//copy assignment operator overload
 		~ClapTrap();
 
 		int getHitPoints() const;
 		int getEnergyPoints() const;
 		int getAttackDamage() const;
+		int	getMaxHitPoints() const;
 		const std::string& getName() const;
 
 		void setHitPoints(int amount);
 		void setEnergyPoints(int amount);
 		void setAttackDamage(int amount);
+		void setMaxHitPoints(int amount);
 		void setName(const std::string& name);
 		
 		void attack(const std::string& target);
